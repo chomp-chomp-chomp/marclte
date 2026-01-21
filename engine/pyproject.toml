@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marclite"
+version = "0.1.0"
+description = "MarcEdit-lite utilities for MARC files"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "MarcliteMac"}]
+dependencies = ["pymarc>=5.2"]
+
+[project.scripts]
+marclite = "marclite.cli:main"
+
+[tool.setuptools]
+packages = ["marclite"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
