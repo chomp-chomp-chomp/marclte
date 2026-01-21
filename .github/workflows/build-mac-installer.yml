@@ -1,0 +1,71 @@
+name: Build Mac Installer
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip wheel
+        cd engine
+        pip install -e .
+        pip install pyinstaller pytest
+
+    - name: Run Python tests
+      run: |
+        cd engine
+        pytest
+
+    - name: Build Mac Installer
+      run: |
+        cd build
+        ./build_installer_simple.sh
+
+    - name: Get app version
+      id: version
+      run: |
+        if [[ $GITHUB_REF == refs/tags/* ]]; then
+          echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        else
+          echo "version=dev-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Rename DMG with version
+      run: |
+        cd build/output
+        mv MarcliteMac-Installer.dmg "MarcliteMac-${{ steps.version.outputs.version }}.dmg"
+
+    - name: Upload DMG artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MarcliteMac-Installer
+        path: build/output/MarcliteMac-*.dmg
+        retention-days: 30
+
+    - name: Upload to Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/output/MarcliteMac-*.dmg
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
