@@ -40,7 +40,7 @@ pip install -e .
 
 pyinstaller --name marclite \
     --onefile \
-    -m marclite.cli \
+    marclite/cli.py \
     --distpath "$BUILD_DIR/cli" \
     --clean
 

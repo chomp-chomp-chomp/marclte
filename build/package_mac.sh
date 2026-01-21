@@ -8,7 +8,7 @@ BIN_DIR="$APP_BUNDLE/Contents/Resources/bin"
 
 cd "$ENGINE_DIR"
 python -m pip install --upgrade pyinstaller
-pyinstaller --name marclite --onefile -m marclite.cli --distpath dist
+pyinstaller --name marclite --onefile marclite/cli.py --distpath dist
 
 mkdir -p "$BIN_DIR"
 cp "$ENGINE_DIR/dist/marclite" "$BIN_DIR/marclite"

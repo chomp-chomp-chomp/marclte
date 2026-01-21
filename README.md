@@ -30,7 +30,7 @@ pytest
 ```bash
 cd engine
 pip install pyinstaller
-pyinstaller --name marclite --onefile -m marclite.cli --distpath dist
+pyinstaller --name marclite --onefile marclite/cli.py --distpath dist
 ```
 
 The resulting binary is `engine/dist/marclite`.
