@@ -1,0 +1,216 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B2C3D4E5F6071829301111 /* MarcliteMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301101 /* MarcliteMacApp.swift */; };
+		A1B2C3D4E5F6071829301112 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301102 /* ContentView.swift */; };
+		A1B2C3D4E5F6071829301113 /* MarcliteRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301103 /* MarcliteRunner.swift */; };
+		A1B2C3D4E5F6071829301114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6071829301104 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1B2C3D4E5F6071829301101 /* MarcliteMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcliteMacApp.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301103 /* MarcliteRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarcliteRunner.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1B2C3D4E5F6071829301105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3D4E5F6071829301200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C3D4E5F6071829301000 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301001 /* MarcliteMac */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D4E5F6071829301001 /* MarcliteMac */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301101 /* MarcliteMacApp.swift */,
+				A1B2C3D4E5F6071829301102 /* ContentView.swift */,
+				A1B2C3D4E5F6071829301103 /* MarcliteRunner.swift */,
+				A1B2C3D4E5F6071829301104 /* Assets.xcassets */,
+				A1B2C3D4E5F6071829301105 /* Info.plist */,
+			);
+			path = MarcliteMac;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C3D4E5F6071829301300 /* MarcliteMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D4E5F6071829301400 /* Build configuration list for PBXNativeTarget "MarcliteMac" */;
+			buildPhases = (
+				A1B2C3D4E5F6071829301500 /* Sources */,
+				A1B2C3D4E5F6071829301501 /* Resources */,
+				A1B2C3D4E5F6071829301200 /* Frameworks */,
+			);
+			name = MarcliteMac;
+			productName = MarcliteMac;
+			productReference = A1B2C3D4E5F6071829301600 /* MarcliteMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3D4E5F6071829301700 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A1B2C3D4E5F6071829301710 /* Build configuration list for PBXProject "MarcliteMac" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			mainGroup = A1B2C3D4E5F6071829301000;
+			productRefGroup = A1B2C3D4E5F6071829301800 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C3D4E5F6071829301300 /* MarcliteMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D4E5F6071829301501 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F6071829301114 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3D4E5F6071829301500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F6071829301112 /* ContentView.swift in Sources */,
+				A1B2C3D4E5F6071829301111 /* MarcliteMacApp.swift in Sources */,
+				A1B2C3D4E5F6071829301113 /* MarcliteRunner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A1B2C3D4E5F6071829301600 /* MarcliteMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = MarcliteMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		A1B2C3D4E5F6071829301800 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D4E5F6071829301600 /* MarcliteMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C3D4E5F6071829302000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MarcliteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MarcliteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F6071829302001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MarcliteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MarcliteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A1B2C3D4E5F6071829302100 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				INFOPLIST_FILE = MarcliteMac/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MarcliteMac;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A1B2C3D4E5F6071829302101 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				INFOPLIST_FILE = MarcliteMac/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MarcliteMac;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3D4E5F6071829301400 /* Build configuration list for PBXNativeTarget "MarcliteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F6071829302000 /* Debug */,
+				A1B2C3D4E5F6071829302001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D4E5F6071829301710 /* Build configuration list for PBXProject "MarcliteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D4E5F6071829302100 /* Debug */,
+				A1B2C3D4E5F6071829302101 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3D4E5F6071829301700 /* Project object */;
+}
