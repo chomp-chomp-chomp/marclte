@@ -60,7 +60,7 @@ pip install --upgrade pyinstaller
 echo "Building marclite binary with PyInstaller..."
 pyinstaller --name marclite \
     --onefile \
-    -m marclite.cli \
+    marclite/cli.py \
     --distpath "$BUILD_DIR/cli" \
     --workpath "$BUILD_DIR/pyinstaller-build" \
     --specpath "$BUILD_DIR" \
