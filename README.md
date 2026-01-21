@@ -55,6 +55,29 @@ Run the helper script to build the CLI and place it in the app bundle:
 
 The script builds the CLI using PyInstaller and copies it into the app bundle under `Contents/Resources/bin/`.
 
+## Building a Distributable Installer
+
+To create a complete Mac installer package (.dmg) for distribution:
+
+```bash
+cd build
+./build_installer_simple.sh
+```
+
+This will:
+1. Build the Python CLI as a standalone binary
+2. Build the Mac app with xcodebuild
+3. Bundle the CLI into the app
+4. Create a `.dmg` installer at `build/output/MarcliteMac-Installer.dmg`
+
+**Requirements:** macOS with Xcode installed
+
+For detailed build instructions, troubleshooting, and code-signing information, see [build/BUILD.md](build/BUILD.md).
+
+### Automated Builds
+
+The repository includes a GitHub Actions workflow that automatically builds the installer on every push. Download the DMG from the Actions tab or from Releases (for tagged versions).
+
 ## Verifying Integration
 
 1. Build the CLI using the script above.
