@@ -106,6 +106,21 @@ Install Xcode Command Line Tools:
 xcode-select --install
 ```
 
+### Build Fails: "xcodebuild requires Xcode, but active developer directory is a command line tools instance"
+
+This error occurs when your system is pointing to Command Line Tools instead of the full Xcode installation. Even if you have Xcode installed, you need to tell macOS to use it:
+
+```bash
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+```
+
+Then verify it's working:
+```bash
+xcodebuild -version
+```
+
+You should see your Xcode version (e.g., "Xcode 15.0") instead of an error. If Xcode is installed in a different location, adjust the path accordingly.
+
 ### Build Fails: Python/PyInstaller Issues
 
 Ensure Python 3.8+ is installed:

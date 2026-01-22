@@ -21,6 +21,23 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
     exit 1
 fi
 
+# Check if xcodebuild is available
+if ! command -v xcodebuild &> /dev/null; then
+    echo "Error: Xcode command line tools not found. Install with: xcode-select --install"
+    exit 1
+fi
+
+# Check if xcode-select is pointing to full Xcode, not just Command Line Tools
+DEVELOPER_DIR=$(xcode-select -p)
+if [[ "$DEVELOPER_DIR" == *"CommandLineTools"* ]]; then
+    echo "Error: xcode-select is pointing to Command Line Tools instead of Xcode"
+    echo "Even though you have Xcode installed, your system is using Command Line Tools"
+    echo "Fix this by running:"
+    echo "  sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer"
+    echo "Then verify with: xcodebuild -version"
+    exit 1
+fi
+
 # Clean and create build directory
 echo -e "\n1. Cleaning build directory..."
 rm -rf "$BUILD_DIR"

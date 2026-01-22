@@ -36,6 +36,17 @@ if ! command -v xcodebuild &> /dev/null; then
     exit 1
 fi
 
+# Check if xcode-select is pointing to full Xcode, not just Command Line Tools
+DEVELOPER_DIR=$(xcode-select -p)
+if [[ "$DEVELOPER_DIR" == *"CommandLineTools"* ]]; then
+    echo -e "${RED}Error: xcode-select is pointing to Command Line Tools instead of Xcode${NC}"
+    echo -e "${RED}Even though you have Xcode installed, your system is using Command Line Tools${NC}"
+    echo -e "${RED}Fix this by running:${NC}"
+    echo -e "${BLUE}  sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer${NC}"
+    echo -e "${RED}Then verify with: xcodebuild -version${NC}"
+    exit 1
+fi
+
 # Clean previous builds
 echo -e "\n${GREEN}Step 1: Cleaning previous builds...${NC}"
 rm -rf "$BUILD_DIR"
