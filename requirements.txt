@@ -1,0 +1,7 @@
+# Web service dependencies
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.17
+
+# Install marclite CLI package from local engine directory
+-e ./engine
