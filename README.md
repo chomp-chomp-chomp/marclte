@@ -83,3 +83,93 @@ The repository includes a GitHub Actions workflow that automatically builds the 
 1. Build the CLI using the script above.
 2. Open the Xcode project and run the app.
 3. Use the Run button to execute an operation. Logs should show streamed JSONL events from the CLI.
+
+## Web Service (Render)
+
+The repository includes a FastAPI-based HTTP wrapper around the marclite CLI. The web service provides REST endpoints that mirror the CLI commands with identical behavior.
+
+### Local Development
+
+Install dependencies and start the server:
+
+```bash
+pip install -r requirements.txt
+pip install -e engine
+uvicorn web.app:app --reload --host 0.0.0.0 --port 10000
+```
+
+The service will be available at `http://localhost:10000`. Visit `http://localhost:10000/docs` for interactive API documentation.
+
+### Endpoints
+
+#### Health Check
+
+```bash
+curl http://localhost:10000/health
+```
+
+Returns `{"status": "healthy"}`.
+
+#### Count Records
+
+```bash
+curl -X POST http://localhost:10000/count \
+  -F "input_file=@sample.mrc"
+```
+
+Returns a JSONL stream with events:
+
+```
+{"event":"start","operation":"count","input":"sample.mrc"}
+{"event":"done","operation":"count","input":"sample.mrc","format":"mrc","records":100,"dropped":0,"warnings":[]}
+```
+
+#### Convert Format
+
+```bash
+curl -X POST http://localhost:10000/convert \
+  -F "input_file=@sample.mrc" \
+  -F "to=marcxml" \
+  --output converted.xml
+```
+
+Converts a MARC file to the specified format. Supported formats: `mrc`, `mrk`, `marcxml`.
+
+#### Split File
+
+```bash
+curl -X POST http://localhost:10000/split \
+  -F "input_file=@sample.mrc" \
+  -F "every=50" \
+  -F "to=mrc" \
+  --output split_output.zip
+```
+
+Splits a MARC file into chunks of N records. Returns a zip file containing all output files. The `to` parameter is optional and defaults to the input format.
+
+#### Merge Files
+
+```bash
+curl -X POST http://localhost:10000/merge \
+  -F "files=@part1.mrc" \
+  -F "files=@part2.mrc" \
+  -F "files=@part3.mrc" \
+  -F "to=mrc" \
+  --output merged.mrc
+```
+
+Merges multiple MARC files into a single file in the specified format.
+
+### Deployment to Render
+
+The repository includes a `render.yaml` configuration for deployment to Render's free tier.
+
+1. Create a new Web Service on Render
+2. Connect your repository
+3. Render will automatically detect the configuration and deploy
+
+The service is stateless and uses `/tmp` for ephemeral file storage. Files are automatically cleaned up after each request. The Render free tier includes automatic idle spin-down after 15 minutes of inactivity and a cold start delay when requests resume.
+
+### Implementation Notes
+
+The web service invokes the marclite CLI as a subprocess for each operation. This ensures behavior matches the CLI exactly. All file uploads are saved to temporary directories under `/tmp` and removed immediately after processing. The service does not store files persistently or use a database.
