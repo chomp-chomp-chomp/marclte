@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarcLite</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <img id="logo" class="logo" style="display: none;" alt="Logo">
+        <div class="header-text">
+          <h1 id="app-name">MarcLite</h1>
+          <p id="tagline">MARC Record Processing</p>
+        </div>
+        <span id="status-indicator" class="status-indicator">Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Count Section -->
+    <section class="endpoint-section">
+      <h2>Count Records</h2>
+      <p>Count the number of records in a MARC file and view statistics.</p>
+
+      <div class="form-group">
+        <label for="count-file">Select MARC file:</label>
+        <input type="file" id="count-file" accept=".mrc,.mrk,.txt,.xml">
+      </div>
+
+      <button id="count-btn">Count Records</button>
+
+      <div id="count-result" class="result"></div>
+    </section>
+
+    <!-- Convert Section -->
+    <section class="endpoint-section">
+      <h2>Convert Format</h2>
+      <p>Convert a MARC file to a different format.</p>
+
+      <div class="form-group">
+        <label for="convert-file">Select MARC file:</label>
+        <input type="file" id="convert-file" accept=".mrc,.mrk,.txt,.xml">
+      </div>
+
+      <div class="form-group">
+        <label for="convert-format">Convert to:</label>
+        <select id="convert-format">
+          <option value="mrc">MARC Binary (.mrc)</option>
+          <option value="mrk">MARC Readable (.mrk)</option>
+          <option value="marcxml">MARC XML (.xml)</option>
+        </select>
+      </div>
+
+      <button id="convert-btn">Convert File</button>
+
+      <div id="convert-result" class="result"></div>
+    </section>
+
+    <!-- Split Section -->
+    <section class="endpoint-section">
+      <h2>Split File</h2>
+      <p>Split a MARC file into multiple smaller files.</p>
+
+      <div class="form-group">
+        <label for="split-file">Select MARC file:</label>
+        <input type="file" id="split-file" accept=".mrc,.mrk,.txt,.xml">
+      </div>
+
+      <div class="form-group">
+        <label for="split-every">Records per file:</label>
+        <input type="number" id="split-every" min="1" value="100" placeholder="100">
+      </div>
+
+      <div class="form-group">
+        <label for="split-format">Output format (optional):</label>
+        <select id="split-format">
+          <option value="">Same as input</option>
+          <option value="mrc">MARC Binary (.mrc)</option>
+          <option value="mrk">MARC Readable (.mrk)</option>
+          <option value="marcxml">MARC XML (.xml)</option>
+        </select>
+      </div>
+
+      <button id="split-btn">Split File</button>
+
+      <div id="split-result" class="result"></div>
+    </section>
+
+    <!-- Merge Section -->
+    <section class="endpoint-section">
+      <h2>Merge Files</h2>
+      <p>Merge multiple MARC files into a single file.</p>
+
+      <div class="form-group">
+        <label for="merge-files">Select MARC files:</label>
+        <input type="file" id="merge-files" accept=".mrc,.mrk,.txt,.xml" multiple>
+      </div>
+
+      <div class="form-group">
+        <label for="merge-format">Output format:</label>
+        <select id="merge-format">
+          <option value="mrc">MARC Binary (.mrc)</option>
+          <option value="mrk">MARC Readable (.mrk)</option>
+          <option value="marcxml">MARC XML (.xml)</option>
+        </select>
+      </div>
+
+      <button id="merge-btn">Merge Files</button>
+
+      <div id="merge-result" class="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p id="footer-text">© 2025 MarcLite. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
