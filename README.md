@@ -173,3 +173,78 @@ The service is stateless and uses `/tmp` for ephemeral file storage. Files are a
 ### Implementation Notes
 
 The web service invokes the marclite CLI as a subprocess for each operation. This ensures behavior matches the CLI exactly. All file uploads are saved to temporary directories under `/tmp` and removed immediately after processing. The service does not store files persistently or use a database.
+
+## Web Frontend (GitHub Pages)
+
+A browser-based frontend is provided in the `docs/` directory for easy interaction with the API. The interface is fully customizable with your own branding and color scheme.
+
+### Customizing Branding
+
+Edit `docs/config.js` to customize:
+
+```javascript
+const BRANDING = {
+  appName: 'Your App Name',
+  tagline: 'Your tagline',
+  colors: {
+    primary: '#2563eb',      // Main brand color
+    secondary: '#1e40af',    // Darker shade
+    // ... more colors
+  },
+  logo: 'https://your-site.com/logo.png',     // Optional logo URL
+  favicon: 'https://your-site.com/icon.png',  // Optional favicon URL
+  footer: '© 2025 Your Company',
+  apiEndpoint: 'https://your-app.onrender.com'  // Your Render URL
+};
+```
+
+### Deploying to GitHub Pages
+
+1. Push the `docs/` directory to your repository
+2. Go to your repository Settings on GitHub
+3. Navigate to Pages (under Code and automation)
+4. Set Source to "Deploy from a branch"
+5. Select branch: `main` (or your default branch)
+6. Select folder: `/docs`
+7. Click Save
+
+Your site will be available at `https://your-username.github.io/marclte/`
+
+### Using a Custom Domain
+
+To use your own domain:
+
+1. In your repository Settings > Pages, enter your custom domain under "Custom domain"
+2. Add a `CNAME` file to the `docs/` directory with your domain name
+3. Configure your DNS provider with a CNAME record pointing to `your-username.github.io`
+
+Example CNAME file:
+
+```
+marclite.yourdomain.com
+```
+
+DNS configuration (at your domain provider):
+
+```
+Type: CNAME
+Name: marclite (or subdomain of your choice)
+Value: your-username.github.io
+```
+
+After DNS propagates, your site will be available at your custom domain.
+
+### Local Testing
+
+To test the frontend locally:
+
+1. Start the backend API (see Web Service section above)
+2. Make sure `apiEndpoint` in `docs/config.js` points to `http://localhost:10000`
+3. Open `docs/index.html` in your browser, or use a local server:
+
+```bash
+cd docs
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000`
